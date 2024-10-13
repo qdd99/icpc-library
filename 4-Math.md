@@ -467,6 +467,32 @@ i64 C(i64 n, i64 m) {
 }
 ```
 
+### Stirling Numbers
+
+```cpp
+// 2nd kind: #ways to partition n objects into k non-empty subsets
+i64 S[N][N];
+void initS() {
+  S[0][0] = 1;
+  for (int i = 1; i < N; i++) {
+    for (int j = 1; j <= i; j++) {
+      S[i][j] = (j * S[i - 1][j] + S[i - 1][j - 1]) % P;
+    }
+  }
+}
+
+// 1st kind: #ways to arrange n objects into k non-empty cycles
+i64 s[N][N];
+void inits1() {
+  s[0][0] = 1;
+  for (int i = 1; i < N; i++) {
+    for (int j = 1; j <= i; j++) {
+      s[i][j] = ((i - 1) * s[i - 1][j] + s[i - 1][j - 1]) % P;
+    }
+  }
+}
+```
+
 ### Cantor Expansion
 
 ```cpp
