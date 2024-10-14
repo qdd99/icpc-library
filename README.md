@@ -1,3 +1,1 @@
-# qdd-s-ICPC-template
-
-A competitive programming template for ICPC-style contests.
+Algorithmic code snippets, mainly for programming contests
