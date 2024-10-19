@@ -438,13 +438,13 @@ string join(const vector<T>& v, string sep) {
 }
 ```
 
-### Discretization
+### Coordinate Compressor
 
 ```cpp
 template <class T>
-struct dc {
+struct CoordinateCompressor {
   vector<T> v;
-  dc(const vector<T>& a) : v(a) {
+  CoordinateCompressor(const vector<T>& a) : v(a) {
     sort(v.begin(), v.end());
     v.erase(unique(v.begin(), v.end()), v.end());
   }
