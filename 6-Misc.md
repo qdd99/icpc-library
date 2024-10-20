@@ -619,8 +619,12 @@ class Modular {
   }
   template <typename U = T>
   typename enable_if<is_same<typename Modular<U>::Type, long long>::value, Modular>::type& operator*=(const Modular& rhs) {
+#ifdef __SIZEOF_INT128__
+    value = normalize(static_cast<__int128>(value) * static_cast<__int128>(rhs.value));
+#else
     long long q = static_cast<long long>(static_cast<long double>(value) * rhs.value / mod());
     value = normalize(value * rhs.value - q * mod());
+#endif
     return *this;
   }
   template <typename U = T>
