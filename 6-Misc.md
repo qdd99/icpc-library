@@ -714,6 +714,13 @@ U& operator>>(U& stream, Modular<T>& number) {
   return stream;
 }
 
+/* using ModType = int;
+
+struct VarMod { static ModType value; };
+ModType VarMod::value;
+ModType& md = VarMod::value;
+using Mint = Modular<VarMod>; */
+
 constexpr int md = (int) 1e9 + 7;
 using Mint = Modular<std::integral_constant<decay<decltype(md)>::type, md>>;
 
